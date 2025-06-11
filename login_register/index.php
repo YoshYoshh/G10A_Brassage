@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="form-box active" id="login-form">
-            <form action = "">
+            <form action = "login_register.php" method="post">
                 <h2>Connexion</h2>
                 <input type = "email" name = "email" placeholder="Email" required>
                 <input type = "password" name = "password" placeholder="Mot de passe" required>
@@ -21,7 +21,7 @@
         </div>
 
         <div class="form-box" id="register-form">
-            <form action = "">
+            <form action = "login_register.php" method="post">
                 <h2>Inscription</h2>
                 <input type = "text" name = "nom" placeholder="Nom" required>
                 <input type = "text" name = "prenom" placeholder="Prénom" required>
