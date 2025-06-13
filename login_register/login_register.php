@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 require_once 'config.php';
 
@@ -9,7 +13,7 @@ if (isset($_POST['register'])){
     $email = $_POST['email'];
     $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
 
-    $checkEmail = $conn->query("SELECT email FROM users WHERE email = '$email");
+    $checkEmail = $conn->query("SELECT email FROM users WHERE email = '$email'");
     if ($checkEmail->num_rows>0){
         $_SESSION['register_error'] = "Un compte associé à cet email existe déjà.";
         $_SESSION['active_form'] = 'register';
