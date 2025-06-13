@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Configurer le moteur</title>
+  <link rel="stylesheet" href="configurer.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Configuration du moteur</h1>
+
+    <div class="controle">
+      <button onclick="envoyerCommande('start')">Démarrer</button>
+      <button onclick="envoyerCommande('stop')">Arrêter</button>
+    </div>
+
+    <div class="controle">
+      <label for="vitesse">Vitesse :</label>
+      <input type="range" id="vitesse" min="0" max="100" value="50"
+             onchange="envoyerCommande('speed:' + this.value)">
+      <span id="valeur-vitesse">50</span> %
+    </div>
+
+    <div id="etat">État du moteur : Inconnu</div>
+  </div>
+
+  <footer>
+    <a href="acceuil.html"><button>Retour à l’accueil</button></a>
+  </footer>
+
+  <script>
+    function envoyerCommande(cmd) {
+      if (cmd.startsWith('speed:')) {
+        document.getElementById('valeur-vitesse').innerText = cmd.split(':')[1];
+      }
+
+      fetch('api.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'commande=' + encodeURIComponent(cmd)
+      })
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('etat').innerText = "Réponse de la carte : " + data;
+      })
+      .catch(err => {
+        document.getElementById('etat').innerText = "Erreur de communication avec la carte.";
+        console.error(err);
+      });
+    }
+  </script>
+</body>
+</html>

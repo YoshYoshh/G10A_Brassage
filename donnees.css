@@ -1,0 +1,52 @@
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f0f0f0;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #003366;
+}
+
+#donnees-moteur {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+footer button {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border: 2px solid #007acc;
+  background: transparent;
+  color: #007acc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+footer button:hover {
+  background-color: #007acc;
+  color: white;
+}
