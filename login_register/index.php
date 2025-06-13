@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 
 $errors = [
@@ -51,7 +55,7 @@ function isActiveForm($formName, $activeForm){
                 <input type = "text" name = "prenom" placeholder="Prénom" required>
                 <input type = "email" name = "email" placeholder="Email" required>
                 <input type = "password" name = "password" placeholder="Mot de passe" required>
-                <button type = "submit" name = "login">S'inscrire</button>
+                <button type = "submit" name = "register">S'inscrire</button>
                 <p>Déjà un compte ? <a href="#" onclick="showForm('login-form')">Se connecter</a></p>
             </form>
         </div>
