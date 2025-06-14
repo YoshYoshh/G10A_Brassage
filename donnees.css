@@ -1,52 +1,85 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #f0f0f0;
-  color: #222;
-  margin: 0;
-  padding: 0;
+  background-color: #fffdf8;
+  /* Ivoire très clair */
+  color: #3b2f2f;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: 1.6;
 }
 
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 3rem auto;
   padding: 2rem;
+  background-color: #fdebb9;
+  /* Vanille doux */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(195, 145, 72, 0.1);
+  text-align: center;
+  animation: fadeIn 1s ease forwards;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  color: #3b2f2f;
   margin-bottom: 2rem;
-  text-align: center;
-  color: #003366;
 }
 
 #donnees-moteur {
-  background: white;
+  background: #fffaf0;
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 10px;
   font-size: 1.2rem;
-  margin-bottom: 2rem;
-  text-align: center;
+  font-weight: 500;
+  color: #a05a2c;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  white-space: pre-line;
 }
 
+/* Footer */
 footer {
   text-align: center;
-  margin-top: 3rem;
+  padding: 2rem 1rem;
+  background-color: #8b5e3c;
+  color: white;
 }
 
 footer button {
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
-  border: 2px solid #007acc;
+  margin-top: 1rem;
   background: transparent;
-  color: #007acc;
-  border-radius: 4px;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 footer button:hover {
-  background-color: #007acc;
-  color: white;
+  background-color: #fff;
+  color: #8b5e3c;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

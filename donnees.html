@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <title>Données moteur</title>
   <link rel="stylesheet" href="donnees.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <div class="container">
-    <h1>Données en temps réel</h1>
+  <div class="container fade-in">
+    <h1>📊 Données en temps réel</h1>
 
     <div id="donnees-moteur">Chargement des données...</div>
   </div>
 
   <footer>
-    <a href="acceuil.html"><button>Retour à l’accueil</button></a>
+    <a href="acceuil.html">
+      <button>🏠 Retour à l’accueil</button>
+    </a>
   </footer>
 
   <script>
@@ -23,18 +28,19 @@
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'commande=get_data'
       })
-      .then(r => r.json())
-      .then(data => {
-        document.getElementById('donnees-moteur').innerText =
-          `Vitesse : ${data.speed} RPM\nTempérature : ${data.temp} °C`;
-      })
-      .catch(() => {
-        document.getElementById('donnees-moteur').innerText = "Erreur de lecture des données.";
-      });
+        .then(r => r.json())
+        .then(data => {
+          document.getElementById('donnees-moteur').innerText =
+            `Vitesse : ${data.speed} RPM\nTempérature : ${data.temp} °C`;
+        })
+        .catch(() => {
+          document.getElementById('donnees-moteur').innerText = "Erreur de lecture des données.";
+        });
     }
 
     setInterval(chargerDonnees, 1000);
     chargerDonnees();
   </script>
 </body>
+
 </html>
