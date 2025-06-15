@@ -34,22 +34,23 @@ if (isset($_POST['login'])){
     if ($result->num_rows>0){
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])){
+            $_SESSION['user_id'] = $user['id'];
             $_SESSION['nom'] = $user['nom'];
             $_SESSION['prenom'] = $user['prenom'];
             $_SESSION['email'] = $user['email'];
 
             if ($user['role']==='admin'){
-                header("Location: ../accueil.html");
+                header("Location: ../accueil.php");
             } else {
-                header("Location: ../accueil.html"); 
+                header("Location: ../accueil.php"); 
             }
             exit();
         }
-    } 
+    }
     $_SESSION['login_error'] = "L'email ou le mot de passe est incorrect.";
     $_SESSION['active_form'] = 'login';
 
-    header("Location: index.php");
+    header("Location: index.php?error=1");
     exit();
 }
 
