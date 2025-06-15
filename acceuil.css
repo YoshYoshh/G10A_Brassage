@@ -1,0 +1,327 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: #3b2f2f;
+  /* Texte brun foncé */
+  background-color: #fffefc;
+  /* Blanc cassé très clair */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #3b2f2f;
+}
+
+header {
+  background-color: #fdebb9;
+  /* Jaune vanille */
+  border-bottom: 1px solid #c28840;
+  /* Or cuivré */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+nav h1 {
+  font-size: 1.75rem;
+  color: #3b2f2f;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #a05a2c;
+  /* Ambré */
+}
+
+.hero {
+  background: linear-gradient(135deg, #fdebb9, #f2c94c);
+  /* Dégradé chaud */
+  color: #3b2f2f;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.button,
+.button-outline {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.button {
+  background-color: #f2c94c;
+  /* Jaune doré */
+  color: #3b2f2f;
+}
+
+.button:hover {
+  background-color: #c28840;
+  /* Cuivré */
+}
+
+.button-outline {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.button-outline:hover {
+  background: #fff;
+  color: #3b2f2f;
+}
+
+section {
+  padding: 3rem 0;
+  background-color: #fffefc;
+  /* Blanc cassé très clair */
+}
+
+section:nth-of-type(even) {
+  background-color: #fdebb9;
+  /* Vanille */
+}
+
+#what-we-do {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+#services {
+  background-color: #c28840;
+  /* Or cuivré */
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+#services .services-list {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#services .service-item {
+  flex: 1;
+  max-width: 200px;
+  background: transparent;
+  padding: 1.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+#services .service-item h3,
+#services .service-item p,
+#services h2,
+#services p {
+  color: #fff;
+}
+
+#tabs {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+#tabs .tabs input[type="radio"] {
+  display: none;
+}
+
+#tabs .tabs>label {
+  cursor: pointer;
+  padding: 0.75rem 1.25rem;
+  background: #f1ca8a;
+  /* Beige */
+  margin: 0 0.5rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+#tabs .tabs>label:hover {
+  background: #fdebb9;
+  /* Vanille */
+}
+
+#tabs #t1:checked+label[for="t1"],
+#tabs #t2:checked+label[for="t2"],
+#tabs #t3:checked+label[for="t3"] {
+  background: #a05a2c;
+  /* Ambré */
+  color: #fff;
+}
+
+#tabs .panels .panel {
+  display: none;
+  margin-top: 1.5rem;
+}
+
+#tabs #t1:checked~.panels #p1,
+#tabs #t2:checked~.panels #p2,
+#tabs #t3:checked~.panels #p3 {
+  display: block;
+}
+
+#tabs .panels .panel img {
+  display: block;
+  margin: 0 auto 1rem;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: transparent;
+}
+
+img.fixed-size {
+  max-width: none;
+  width: auto;
+  height: 100px;
+}
+
+#tabs .panels .panel img[src*="logo_brassart"] {
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* --- Séparateur visuel haut/bas (optionnel) --- */
+.separator {
+  height: 4px;
+  background-color: #c28840;
+  margin-top: 2rem;
+}
+
+/* --- FOOTER ZONE (partie basse) --- */
+
+footer {
+  background-color: #8b5e3c;
+  /* Brun doux */
+  color: #fff;
+  padding: 3rem 1rem;
+}
+
+footer .footer-widgets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer .widget {
+  flex: 1;
+  min-width: 200px;
+}
+
+footer h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+footer p,
+footer .widget ul li a {
+  font-size: 0.875rem;
+  color: #fff;
+  line-height: 1.6;
+}
+
+footer .widget ul li {
+  border-bottom: 1px solid #cfa97a;
+  padding: 0.5rem 0;
+}
+
+footer .widget ul li:last-child {
+  border-bottom: none;
+}
+
+footer .social-links li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #cfa97a;
+}
+
+footer .social-links li:last-child {
+  border-bottom: none;
+}
+
+footer .footer-bottom {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #fff;
+  margin-top: 2rem;
+}

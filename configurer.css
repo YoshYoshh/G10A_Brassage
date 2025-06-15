@@ -1,0 +1,143 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fffdf8;
+  /* Ivoire très clair, presque blanc */
+  color: #3b2f2f;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+  background-color: #fdebb9;
+  /* Vanille doux */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(195, 145, 72, 0.1);
+  text-align: center;
+  animation: fadeIn 1s ease forwards;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: #3b2f2f;
+  margin-bottom: 2rem;
+}
+
+.controle {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="range"] {
+  appearance: none;
+  width: 220px;
+  height: 8px;
+  background: #f2c94c;
+  border-radius: 4px;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #c28840;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #c28840;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.6rem 1.4rem;
+  background-color: #f2c94c;
+  color: #3b2f2f;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #c28840;
+  color: #fff;
+}
+
+#valeur-vitesse {
+  font-weight: bold;
+  color: #a05a2c;
+}
+
+#etat {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #a05a2c;
+}
+
+/* Footer */
+footer {
+  padding: 2rem 1rem;
+  background-color: #8b5e3c;
+  text-align: center;
+  color: #fff;
+}
+
+footer button {
+  margin-top: 1rem;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+footer button:hover {
+  background-color: #fff;
+  color: #8b5e3c;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
