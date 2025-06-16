@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_id'])) {
             <p>Apprenez étape par étape comment créer votre propre bière, des ingrédients à la fermentation, avec des
                 images pour illustrer chaque étape.</p>
             <a href="login_register/logout.php" class="button" id="logout-button">Se déconnecter</a>
-            <a href="#" class="button-outline">En savoir plus</a>
+            <a href="en_savoir_plus.html" class="button-outline">En savoir plus</a>
         </div>
     </section>
 
