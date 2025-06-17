@@ -15,7 +15,6 @@ if (isset($_POST['register'])){
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    // --- REQUÊTE PRÉPARÉE ---
     $stmt = $conn->prepare("SELECT email FROM users WHERE email = ? LIMIT 1");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -24,19 +23,17 @@ if (isset($_POST['register'])){
     if ($checkEmail->num_rows > 0){
         $_SESSION['register_error'] = "Un compte associé à cet email existe déjà.";
         $_SESSION['active_form'] = 'register';
-        header("Location: index.php"); // Redirection après avoir défini le message
+        header("Location: index.php"); 
         exit();
     } else {
         $verification_token = bin2hex(random_bytes(32)); 
 
-        // --- REQUÊTE PRÉPARÉE ---
         $stmt = $conn->prepare("INSERT INTO users (nom, prenom, email, password, role, verification_token) VALUES (?, ?, ?, ?, 'user', ?)");
         $stmt->bind_param("sssss", $nom, $prenom, $email, $password, $verification_token);
         
         if ($stmt->execute()) {
             $mail = new PHPMailer(true);
             try {
-                // ... (votre code Mailtrap identique, il est correct)
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';   
                 $mail->SMTPAuth   = true;
@@ -57,7 +54,6 @@ if (isset($_POST['register'])){
                 header("Location: index.php");
                 exit();
             } catch (Exception $e) {
-                // Pour le débogage, il est crucial de voir cette erreur
                 error_log("Erreur PHPMailer: " . $mail->ErrorInfo);
                 $_SESSION['register_error'] = "Impossible d'envoyer l'e-mail de vérification. Veuillez réessayer.";
                 header("Location: index.php");
@@ -76,7 +72,6 @@ if (isset($_POST['login'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // --- UNE SEULE REQUÊTE PRÉPARÉE, BIEN STRUCTURÉE ---
     $stmt = $conn->prepare("SELECT id, nom, prenom, email, password, role, is_verified FROM users WHERE email = ? LIMIT 1");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -86,7 +81,6 @@ if (isset($_POST['login'])){
         $user = $result->fetch_assoc();
 
         if (password_verify($password, $user['password'])) {
-            // Le mot de passe est correct, maintenant on vérifie si le compte est activé
             if ($user['is_verified'] == 0) {
                 $_SESSION['login_error'] = "Votre compte n'a pas encore été vérifié. Veuillez consulter vos e-mails.";
                 $_SESSION['active_form'] = 'login';
