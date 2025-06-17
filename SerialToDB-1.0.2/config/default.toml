@@ -17,7 +17,7 @@ user = "app_user"
 password = "apppassword"
 db_name = "app_db"
 # Nom de la table, si elle n'existe pas elle sera auto crée.
-table = "vitesse_moteur"
+table = "moteur"
 
 [upload]
 # Fréquence d'upload en secondes. (Pas beaucoup moins, on evite la surcharge svp)
