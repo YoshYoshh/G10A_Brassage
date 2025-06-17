@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user_id'])) {
+    // si utilisateur pas connecté, on le redirige vers la page de connexion
+    header("Location: login_register/index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -20,7 +31,7 @@
             <h1>Découvrez le processus de brassage de la bière</h1>
             <p>Apprenez étape par étape comment créer votre propre bière, des ingrédients à la fermentation, avec des
                 images pour illustrer chaque étape.</p>
-            <a href="#" class="button">S’inscrire</a>
+            <a href="login_register/logout.php" class="button" id="logout-button">Se déconnecter</a>
             <a href="#" class="button-outline">En savoir plus</a>
         </div>
     </section>
