@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Support Technique - BRASS'ART</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="support_technique.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>BRASS'ART</h1>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>Support Technique</h1>
+            <p>Vous avez un problème ou une question ? Notre équipe est là pour vous aider.</p>
+            <a href="accueil.php" class="button-outline">Retour à l'accueil</a>
+        </div>
+    </section>
+
+    <section class="support-form-section">
+        <h2 class="centered">Contactez notre support</h2>
+        <form action="envoyer_support.php" method="post" class="support-form">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required />
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Votre adresse email" required />
+
+            <label for="subject">Sujet :</label>
+            <input type="text" id="subject" name="subject" placeholder="Sujet de votre demande" required />
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" placeholder="Décrivez votre problème ou question" required></textarea>
+
+            <button type="submit" class="button">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-widgets">
+            <div class="widget">
+                <h5>À propos de Brass’art</h5>
+                <p>BRASS'ART vous accompagne dans la découverte du brassage, en mêlant pédagogie et contrôle numérique.
+                </p>
+            </div>
+            <div class="widget">
+                <h5>Liens utiles</h5>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support_technique.html">Support technique</a></li>
+                    <li><a href="#">Conditions d’utilisation</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="widget">
+                <h5>Réseaux sociaux</h5>
+                <ul class="social-links">
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Brass’art. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
