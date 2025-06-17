@@ -22,9 +22,20 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <header>
         <nav>
-            <h1>BRASS'ART</h1>
+            <div>
+                <h1>BRASS'ART</h1>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="accueil.php">Accueil</a></li>
+                    <li><a href="en_savoir_plus.html">Brassage</a></li>
+                    <li><a href="configurer.html">Configuration</a></li>
+                    <li><a href="donnees.html">Données</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
+
 
     <section class="hero">
         <div>
