@@ -1,1 +1,7 @@
+/vendor/
+
+# Fichier d'environnement local (si vous en utilisez un)
 .env
+
+# Fichiers système de macOS
+.DS_Store
