@@ -22,4 +22,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['commande'])) {
 
     echo $response ?: json_encode(["error" => "Pas de réponse"]);
 }
+
 ?>
