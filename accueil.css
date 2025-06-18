@@ -60,7 +60,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
 }
 
 nav h1 {
@@ -82,6 +82,24 @@ nav ul li a:hover {
   color: #a05a2c;
   /* Ambré */
 }
+
+/*Logo début*/Add commentMore actions
+.logo-container {
+  flex-shrink: 0; /* Empêche le logo de rétrécir ou de prendre toute la largeur */
+}
+
+.logo {
+  width: 120px; /* Taille fixe ou responsive */
+  height: auto;
+  display: block;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  margin: 0;                /* évite le décalage vertical du h1 */
+}
+/*Logo fin*/
+
 
 .hero {
   background: linear-gradient(135deg, #fdebb9, #f2c94c);
@@ -107,7 +125,7 @@ nav ul li a:hover {
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   font-weight: 600;
-  transition: background 0.3s, color 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
 .button {
@@ -198,7 +216,7 @@ section:nth-of-type(even) {
   margin: 0 0.5rem 0.5rem;
   border-radius: 4px;
   font-weight: 600;
-  transition: background 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
 #tabs .tabs>label:hover {
