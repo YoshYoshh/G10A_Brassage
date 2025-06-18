@@ -1,3 +1,22 @@
+<?php
+// Connexion à la base de données
+require_once 'login_register/config.php';
+
+// connexion à la table vitesse_moteur et récupération des données
+$sql_vitesse = "SELECT vitesse_rmp FROM vitesse_moteur ORDER BY id ASC";
+$result_vitesse = $conn->query($sql_vitesse);
+
+$vitesses= [];
+if ($result_vitesse->num_rows > 0) {
+    while ($row = $result_vitesse->fetch_assoc()) {
+        $vitesses[] = $row['vitesse_rmp'];
+    }
+} else {
+    $vitesses = [];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -37,8 +56,9 @@
 
   <script>
     const maxPoints = 30;
-    const vitesses = [];
-    const temps = [];
+    // Initialisation des données du graphique
+    const vitessesPHP = <?php echo json_encode($vitesses); ?>;
+    const temps = vitessesPHP.map((_, index) => `Mesure ${index + 1}`);
 
     const ctx = document.getElementById('graphique-vitesse').getContext('2d');
     const chart = new Chart(ctx, {
@@ -49,7 +69,7 @@
           label: 'Vitesse envoyée (%)',
           borderColor: '#007acc',
           backgroundColor: 'transparent',
-          data: [],
+          data: vitessesPHP,
           fill: false
         }]
       },
@@ -58,7 +78,7 @@
         responsive: true,
         scales: {
           x: { display: false },
-          y: { beginAtZero: true, max: 100 }
+          y: { beginAtZero: true, max: 200 }
         },
         plugins: {
           legend: { position: 'top' }
