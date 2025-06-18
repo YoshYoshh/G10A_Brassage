@@ -45,7 +45,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `verification_token`, `verified_at`, `is_verified`) VALUES
 (1, 'Kam', 'Jade', 'test@mail.com', '$2y$10$Gm3Z566tRLrCMQc.DjswaONRm5tSmropsbeQf6Flx2emR0Xg3.ITG', 'user', NULL, NULL, 0),
-(2, 'L', 'Eloise', 'eloise.lenoir@eleve.isep.fr', '$2y$10$3cTKqhTRsSulkkOhDVK5AOtbBOf3OVY34IiDFWhV5H4sYh/7LF5B.', 'user', NULL, NULL, 0);
+(2, 'L', 'Eloise', 'user1@gmail.com', '$2y$10$3cTKqhTRsSulkkOhDVK5AOtbBOf3OVY34IiDFWhV5H4sYh/7LF5B.', 'user', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
