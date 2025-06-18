@@ -20,7 +20,7 @@
 
     <div class="controle">
       <label for="vitesse">Vitesse :</label>
-      <input type="range" id="vitesse" min="0" max="100" value="50" onchange="envoyerCommande('speed:' + this.value)">
+      <input type="range" id="vitesse" min="0" max="100" value="50" onchange="envoyerCommande('vitesse:' + this.value)">
       <span id="valeur-vitesse">50</span> %
     </div>
 
@@ -67,12 +67,10 @@
     });
 
     function envoyerCommande(cmd) {
-      // Met à jour l'affichage texte si c'est une commande de vitesse
-      if (cmd.startsWith('speed:')) {
+      if (cmd.startsWith('vitesse:')) {
         const val = cmd.split(':')[1];
         document.getElementById('valeur-vitesse').innerText = val;
 
-        // Ajoute la donnée au graphique
         const now = new Date().toLocaleTimeString();
         temps.push(now);
         vitesses.push(Number(val));
@@ -87,7 +85,6 @@
         chart.update();
       }
 
-      // Envoi de la commande à la carte
       fetch('api.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

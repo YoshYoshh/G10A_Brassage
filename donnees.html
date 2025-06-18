@@ -13,10 +13,8 @@
   <div class="container fade-in">
     <h1>Données en temps réel</h1>
 
-    <!-- Graphique en haut -->
     <canvas id="graphique" width="800" height="400" style="margin-bottom: 2rem;"></canvas>
 
-    <!-- Données textuelles en dessous -->
     <div id="donnees-moteur">Chargement des données...</div>
   </div>
 
@@ -76,12 +74,10 @@
         .then(d => {
           const now = new Date().toLocaleTimeString();
 
-          // Ajout des nouvelles données
           data.labels.push(now);
           data.datasets[0].data.push(d.speed);
           data.datasets[1].data.push(d.temp);
 
-          // Limite à maxPoints
           if (data.labels.length > maxPoints) {
             data.labels.shift();
             data.datasets[0].data.shift();
@@ -90,7 +86,6 @@
 
           chart.update();
 
-          // Affichage texte
           document.getElementById('donnees-moteur').innerText =
             `Vitesse : ${d.speed} RPM\nTempérature : ${d.temp} °C`;
         })
