@@ -1,6 +1,6 @@
 <?php
 
-// --- Identifiants pour la base de données PostgreSQL DISTANTE ---
+// --- Identifiants pour la base de données PostgreSQL ---
 $host = 'app.garageisep.com';
 $port = '5432';
 $db_name = 'app_db';
@@ -19,13 +19,11 @@ $options = [
 try {
     // Tentative de connexion
     $pdo = new PDO($dsn, $username, $password, $options);
-    echo "<h1>Connexion à la base de données PostgreSQL réussie !</h1>";
+    //echo "<h1>Connexion à la base de données réussie !</h1>";
 
-
+    
 } catch (\PDOException $e) {
-    // En cas d'erreur, ne jamais afficher l'erreur détaillée en production !
-    // Affichez un message générique à l'utilisateur et loggez l'erreur pour le développeur.
-    die("Erreur : Impossible de communiquer avec la base de données. Message pour le dev : " . $e->getMessage());
+    die("Erreur : Impossible de communiquer avec la base de données. Erreur : " . $e->getMessage());
 }
 
 ?>
