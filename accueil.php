@@ -48,7 +48,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <section id="what-we-do">
         <h2 class="centered">Ce que nous faisons</h2>
-        <p class="centered">Voici une brève description de notre activité.</p>
+        <p class="centered">Chez BRASS'ART, nous combinons tradition brassicole et innovation technologique. Grace à notre site internet, nous vous guidons dans un univers passionnant du brassage artisanal. Notre objectif est de rendre le processus de fabrication de la bière à la fois ludique, éducatif et durable.</p>
     </section>
 
     <section id="services">
@@ -107,16 +107,15 @@ if (!isset($_SESSION['user_id'])) {
         <div class="footer-widgets">
             <div class="widget">
                 <h5>À propos de Brass’art</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
-                    tristique.</p>
+                <p>BRASS'ART vous accompagne dans la découverte du brassage, en mêlant pédagogie et contrôle numérique.</p>
             </div>
             <div class="widget">
                 <h5>Liens utiles</h5>
                 <ul>
-                    <li><a href="#">Phasellus gravida semper nisi</a></li>
-                    <li><a href="#">Suspendisse nisl elit</a></li>
-                    <li><a href="#">Pellentesque habitant morbi</a></li>
-                    <li><a href="#">Etiam sollicitudin ipsum</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support_technique.html">Support technique</a></li>
+                    <li><a href="#">Conditions d’utilisation</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
             <div class="widget">
@@ -126,6 +125,7 @@ if (!isset($_SESSION['user_id'])) {
                     <li><a href="#">Facebook</a></li>
                     <li><a href="#">Pinterest</a></li>
                     <li><a href="#">Google</a></li>
+                    <li><a href="#">Instagram</a></li>
                 </ul>
             </div>
         </div>
