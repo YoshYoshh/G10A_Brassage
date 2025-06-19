@@ -28,14 +28,13 @@ if (!isset($_SESSION['user_id'])) {
             <div>
                 <ul>
                     <li><a href="accueil.php">Accueil</a></li>
-                    <li><a href="en_savoir_plus.html">Brassage</a></li>
-                    <li><a href="configurer.html">Configuration</a></li>
-                    <li><a href="donnees.html">Données</a></li>
+                    <li><a href="en_savoir_plus.php">Brassage</a></li>
+                    <li><a href="configurer.php">Configuration</a></li>
+                    <li><a href="donnees.php">Données</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-
 
     <section class="hero">
         <div>
@@ -43,14 +42,14 @@ if (!isset($_SESSION['user_id'])) {
             <p>Apprenez étape par étape comment créer votre propre bière, des ingrédients à la fermentation, avec des
                 images pour illustrer chaque étape.</p>
             <a href="login_register/logout.php" class="button" id="logout-button">Se déconnecter</a>
-            <a href="en_savoir_plus.html" class="button-outline">En savoir plus</a>
+            <a href="en_savoir_plus.php" class="button-outline">En savoir plus</a>
         </div>
     </section>
 
     <section id="what-we-do">
-    <h2 class="centered">Ce que nous faisons</h2>
-    <p class="centered">Chez BRASS'ART, nous combinons tradition brassicole et innovation technologique. Grace à notre site internet, nous vous guidons dans un univers passionnant du brassage artisanal. Notre objectif est de rendre le processus de fabrication de la bière à la fois ludique, éducatif et durable.</p>
-</section>
+        <h2 class="centered">Ce que nous faisons</h2>
+        <p class="centered">Chez BRASS'ART, nous combinons tradition brassicole et innovation technologique. Grace à notre site internet, nous vous guidons dans un univers passionnant du brassage artisanal. Notre objectif est de rendre le processus de fabrication de la bière à la fois ludique, éducatif et durable.</p>
+    </section>
 
     <section id="services">
         <h2 class="centered">Services</h2>
@@ -60,13 +59,13 @@ if (!isset($_SESSION['user_id'])) {
                 <img src="images/mannette.png" alt="Icône moteur">
                 <h3>Configuration du moteur</h3>
                 <p>Ici, vous pouvez contrôler et configurer le moteur.</p>
-                <a href="configurer.html" class="button-outline all-caps">Configurer</a>
+                <a href="configurer.php" class="button-outline all-caps">Configurer</a>
             </div>
             <div class="service-item">
                 <img src="images/graphique.png" alt="Icône graphique">
                 <h3>Données du moteur</h3>
                 <p>Visualisez ici toutes les données relatives au moteur.</p>
-                <a href="donnees.html" class="button-outline">Voir les données</a>
+                <a href="donnees.php" class="button-outline">Voir les données</a>
             </div>
         </div>
     </section>
@@ -125,6 +124,7 @@ if (!isset($_SESSION['user_id'])) {
                     <li><a href="#">Twitter</a></li>
                     <li><a href="#">Facebook</a></li>
                     <li><a href="#">Pinterest</a></li>
+                    <li><a href="#">Google</a></li>
                     <li><a href="#">Instagram</a></li>
                 </ul>
             </div>

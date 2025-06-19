@@ -1,3 +1,35 @@
+<?php
+// Connexion à la base de données
+require_once 'login_register/config.php';
+
+// connexion à la table vitesse_moteur et récupération des données
+$sql_vitesse = "SELECT vitesse_rmp FROM vitesse_moteur ORDER BY id ASC";
+$result_vitesse = $conn->query($sql_vitesse);
+
+$vitesses= [];
+if ($result_vitesse->num_rows > 0) {
+    while ($row = $result_vitesse->fetch_assoc()) {
+        $vitesses[] = $row['vitesse_rmp'];
+    }
+} else {
+    $vitesses = [];
+}
+
+// connexion à la table vitesse_moteur et récupération des données
+$sql_temperature = "SELECT valeurs FROM temperatures ORDER BY id ASC";
+$result_temperature = $conn->query($sql_temperature);
+
+$temperatures= [];
+if ($result_temperature->num_rows > 0) {
+    while ($row = $result_temperature->fetch_assoc()) {
+        $temperatures[] = $row['valeurs'];
+    }
+} else {
+    $temperatures = [];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,8 +45,10 @@
   <div class="container fade-in">
     <h1>Données en temps réel</h1>
 
-    <canvas id="graphique" width="800" height="400" style="margin-bottom: 2rem;"></canvas>
+    <!-- Graphique en haut -->
+    <canvas id="graphique-donnees" width="800" height="400" style="margin-bottom: 2rem;"></canvas>
 
+    <!-- Données textuelles en dessous -->
     <div id="donnees-moteur">Chargement des données...</div>
   </div>
 
@@ -24,79 +58,94 @@
     </a>
   </footer>
 
-  <script>
-    const ctx = document.getElementById('graphique').getContext('2d');
-    const maxPoints = 30;
+<script>
+        const maxPoints = 30;
 
-    const data = {
-      labels: [],
-      datasets: [
-        {
-          label: 'Vitesse (RPM)',
-          borderColor: '#007acc',
-          backgroundColor: 'transparent',
-          data: [],
-          fill: false
-        },
-        {
-          label: 'Température (°C)',
-          borderColor: '#cc3300',
-          backgroundColor: 'transparent',
-          data: [],
-          fill: false
-        }
-      ]
-    };
+        // Récupération des données initiales depuis PHP
+        const vitessePHP = <?php echo json_encode($vitesses); ?>;
+        const temperaturePHP = <?php echo json_encode($temperatures); ?>;
 
-    const chart = new Chart(ctx, {
-      type: 'line',
-      data: data,
-      options: {
-        animation: false,
-        responsive: true,
-        scales: {
-          x: { display: false },
-          y: { beginAtZero: true }
-        },
-        plugins: {
-          legend: { position: 'top' }
-        }
-      }
-    });
+        const temps = vitessePHP.map((_, index) => `Mesure ${index + 1}`);
 
-    function chargerDonnees() {
-      fetch('api.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'commande=get_data'
-      })
-        .then(r => r.json())
-        .then(d => {
-          const now = new Date().toLocaleTimeString();
+        const ctx = document.getElementById('graphique-donnees').getContext('2d');
 
-          data.labels.push(now);
-          data.datasets[0].data.push(d.speed);
-          data.datasets[1].data.push(d.temp);
+        const data = {
+            labels: temps,
+            datasets: [
+                {
+                    label: 'Vitesse (RPM)',
+                    borderColor: '#007acc',
+                    backgroundColor: 'transparent',
+                    data: vitessePHP,
+                    fill: false
+                },
+                {
+                    label: 'Température (°C)',
+                    borderColor: '#cc3300',
+                    backgroundColor: 'transparent',
+                    data: temperaturePHP,
+                    fill: false
+                }
+            ]
+        };
 
-          if (data.labels.length > maxPoints) {
-            data.labels.shift();
-            data.datasets[0].data.shift();
-            data.datasets[1].data.shift();
-          }
-
-          chart.update();
-
-          document.getElementById('donnees-moteur').innerText =
-            `Vitesse : ${d.speed} RPM\nTempérature : ${d.temp} °C`;
-        })
-        .catch(() => {
-          document.getElementById('donnees-moteur').innerText = "Erreur de lecture des données.";
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                animation: false,
+                responsive: true,
+                scales: {
+                    x: {display: true,
+                        title: {
+                            display: true,
+                            text: 'Temps'}
+                    },
+                    y: {beginAtZero: true}
+                },
+                plugins: {
+                    legend: { position: 'top' }
+                }
+            }
         });
-    }
 
-    setInterval(chargerDonnees, 1000);
-    chargerDonnees();
-  </script>
+        function chargerDonnees() {
+            fetch('api.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'commande=get_data'
+            })
+            .then(r => r.json())
+            .then(d => {
+                const now = new Date().toLocaleTimeString();
+
+                // Ajout des nouvelles données
+                data.labels.push(now);
+                data.datasets[0].data.push(d.speed);
+                data.datasets[1].data.push(d.temp);
+
+                // Limite à maxPoints
+                if (data.labels.length > maxPoints) {
+                    data.labels.shift();
+                    data.datasets[0].data.shift();
+                    data.datasets[1].data.shift();
+                }
+
+                chart.update();
+
+                // Affichage texte
+                document.getElementById('donnees-moteur').innerText =
+                    `Vitesse : ${d.speed} RPM\nTempérature : ${d.temp} °C`;
+            })
+            .catch(error => {
+                console.error("Erreur lors du chargement des données:", error);
+                document.getElementById('donnees-moteur').innerText = "Erreur de lecture des données.";
+            });
+        }
+
+        chargerDonnees(); // Appel initial pour afficher les premières données (celles de api.php)
+        setInterval(chargerDonnees, 1000); // Met à jour toutes les secondes
+    </script>
 </body>
 
 </html>
