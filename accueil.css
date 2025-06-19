@@ -60,25 +60,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem;
 }
-
-/*Logo début*/
-.logo-container {
-  flex-shrink: 0; /* Empêche le logo de rétrécir ou de prendre toute la largeur */
-}
-
-.logo {
-  width: 120px; /* Taille fixe ou responsive */
-  height: auto;
-  display: block;
-}
-
-.site-title {
-  font-size: 1.5rem;
-  margin: 0;                /* évite le décalage vertical du h1 */
-}
-/*Logo fin*/
 
 nav h1 {
   font-size: 1.75rem;
@@ -99,6 +82,24 @@ nav ul li a:hover {
   color: #a05a2c;
   /* Ambré */
 }
+
+/*Logo début*/Add commentMore actions
+.logo-container {
+  flex-shrink: 0; /* Empêche le logo de rétrécir ou de prendre toute la largeur */
+}
+
+.logo {
+  width: 120px; /* Taille fixe ou responsive */
+  height: auto;
+  display: block;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  margin: 0;                /* évite le décalage vertical du h1 */
+}
+/*Logo fin*/
+
 
 .hero {
   background: linear-gradient(135deg, #fdebb9, #f2c94c);
@@ -269,23 +270,19 @@ img.fixed-size {
   margin-bottom: 1rem;
 }
 
-/* --- Séparateur visuel haut/bas (optionnel) --- */
 .separator {
   height: 4px;
   background-color: #c28840;
   margin-top: 2rem;
 }
 
-/* --- FOOTER ZONE (partie basse) --- */
-
 footer {
   background-color: #8b5e3c;
-  /* Brun doux */
   color: #fff;
   padding: 3rem 1rem;
 }
 
-footer .footer-widgets {
+.footer-widgets {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -294,7 +291,7 @@ footer .footer-widgets {
   margin: 0 auto;
 }
 
-footer .widget {
+.widget {
   flex: 1;
   min-width: 200px;
 }
@@ -309,22 +306,22 @@ footer h5 {
 }
 
 footer p,
-footer .widget ul li a {
+.widget ul li a {
   font-size: 0.875rem;
   color: #fff;
   line-height: 1.6;
 }
 
-footer .widget ul li {
+.widget ul li {
   border-bottom: 1px solid #cfa97a;
   padding: 0.5rem 0;
 }
 
-footer .widget ul li:last-child {
+.widget ul li:last-child {
   border-bottom: none;
 }
 
-footer .social-links li {
+.social-links li {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -332,11 +329,11 @@ footer .social-links li {
   border-bottom: 1px solid #cfa97a;
 }
 
-footer .social-links li:last-child {
+.social-links li:last-child {
   border-bottom: none;
 }
 
-footer .footer-bottom {
+.footer-bottom {
   text-align: center;
   font-size: 0.75rem;
   color: #fff;
