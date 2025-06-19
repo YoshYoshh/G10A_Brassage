@@ -39,7 +39,7 @@ if ($result_vitesse->num_rows > 0) {
 
     <div class="controle">
       <label for="vitesse">Vitesse :</label>
-      <input type="range" id="vitesse" min="0" max="100" value="50" onchange="envoyerCommande('speed:' + this.value)">
+      <input type="range" id="vitesse" min="0" max="100" value="50" onchange="envoyerCommande('vitesse:' + this.value)">
       <span id="valeur-vitesse">50</span> %
     </div>
 
@@ -88,7 +88,7 @@ if ($result_vitesse->num_rows > 0) {
 
     function envoyerCommande(cmd) {
       // Met à jour l'affichage texte si c'est une commande de vitesse
-      if (cmd.startsWith('speed:')) {
+      if (cmd.startsWith('vitesse:')) {
         const val = cmd.split(':')[1];
         document.getElementById('valeur-vitesse').innerText = val;
 
