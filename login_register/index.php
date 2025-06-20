@@ -14,6 +14,13 @@ $activeForm = $_SESSION['active_form'] ?? 'login';
 
 session_unset();
 
+// Affiche le message de statut s'il existe
+if (isset($_SESSION['status'])) {
+    echo '<div class="alert alert-success">' . htmlspecialchars($_SESSION['status']) . '</div>';
+    // on supprime le message pour qu'il n'apparaisse qu'une seule fois
+    unset($_SESSION['status']);
+}
+
 function showError($error) {
     return !empty($error) ? "<p class='error-message'>$error</p>" : '';
 }
